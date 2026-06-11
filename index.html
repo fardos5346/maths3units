@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מרכז למידה במתמטיקה - 6 נושאים</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* מרכז את כל התוכן של ה-body */
+        }
+
+        header {
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* שורת חיפוש ממורכזת */
+        .search-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 40px auto;
+            text-align: center;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+            transition: border-color 0.3s;
+            text-align: center; /* מרכוז הטקסט בתוך תיבת החיפוש */
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary-color);
+        }
+
+        main {
+            width: 100%;
+            max-width: 1000px; /* מגביל את רוחב התוכן הראשי וממרכז אותו */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* קטגוריות ממורכזות */
+        .category-section {
+            width: 100%;
+            margin-bottom: 40px;
+            text-align: center; /* ממרכז את כותרת הנושא */
+        }
+
+        .category-title {
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            justify-content: center; /* ממרכז את הכרטיסיות עצמן בשורה */
+            align-items: stretch;
+        }
+
+        /* כרטיסיות עם תוכן ממורכז */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* ממרכז את האלמנטים בתוך הכרטיסייה */
+            text-align: center; /* ממרכז את הטקסט בתוך הכרטיסייה */
+            border-top: 5px solid var(--primary-color); /* שינוי העיצוב לטופ-בורדר כדי שיתאים למרכז */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #222;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .card .badge {
+            display: inline-block;
+            padding: 3px 12px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            background-color: #e2f0cb; 
+            color: #437300;
+        }
+
+        .btn-link {
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            margin-top: auto;
+        }
+
+        .btn-link:hover {
+            background-color: var(--secondary-color);
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            body { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>מאגר עזרי לימוד במתמטיקה</h1>
+        <p>ששת נושאי הלימוד מרוכזים ומאורגנים במקום אחד</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="חפש נושא או מילת מפתח...">
+    </div>
+
+    <main id="content-wrapper">
+
+        <section class="category-section">
+            <h2 class="category-title">1. גדילה ודעיכה</h2>
+            <div class="grid-container">
+                
+                <div class="card" data-title="גדילה ודעיכה סדרה הנדסית תרגול">
+                    <span class="badge">שפת הלומדה: עברית</span>
+                    <h3>גדילה ודעיכה - תרגול</h3>
+                    <p>תרגול ומשימות בנושא גדילה ודעיכה.</p>
+                    <a href="https://codepen.io/tarek-khalaily/full/dPOeYZz" target="_blank" class="btn-link">פתח לומדה</a>
+                </div>
+
+                <div class="card" data-title="מדריך גדילה ודעיכה סדרה הנדסית">
+                    <span class="badge">שפת הלומדה: עברית</span>
+                    <h3>מדריך גדילה ודעיכה</h3>
+                    <p>מדריך מפורט והסברים על חוקי הגדילה והדעיכה.</p>
+                    <a href="https://codepen.io/tarek-khalaily/full/KwNRLWX" target="_blank" class="btn-link">פתח לומדה</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="category-title">2. פונקציה קווית</h2>
+            <div class="grid-container">
+
+                <div class="card" data-title="גרפים ליניאריים פונקציה קווית ישר אלגברה">
+                    <span class="badge">שפת הלומדה: עברית</span>
+                    <h3>גרפים ליניאריים</h3>
+                    <p>חקר פונקציות קוויות וגרפים ליניאריים.</p>
+                    <a href="https://codepen.io/tarek-khalaily/full/wBoXRpb" target="_blank" class="btn-link">פתח לומדה</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="category-title">3. הסתברות</h2>
+            <div class="grid-container">
+
+                <div class="card" data-title="מדריך הסתברות">
+                    <span class="badge">שפת הלומדה: עברית</span>
+                    <h3>מדריך הסתברות</h3>
+                    <p>הסברים ויסודות תיאורטיים בנושא הסתברות.</p>
+                    <a href="https://codepen.io/tarek-khalaily/full/jEVxyxo" target="_blank" class="btn-link">פתח לומדה</a>
+                </div>
+
+                <div class="card" data-title="תרגול הסתברות עברית">
+                    <span class="badge">שפת הלומדה: עברית</span>
+                    <h3>תרגול הסתברות</h3>
+                    <p>משימות ותרגילים מעשיים בנושא הסתברות.</p>
+                    <a href="https://codepen.io/tarek-khalaily/full/ogYdBjz" target="_blank" class="btn-link">פתח לומדה</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="category-title">4. סטטיסטיקה</h2>
+            <div class="grid-container">
+
+                <div class="card" data-title="ממוצע וחציון סטטיסטיקה">
+                    <span class="badge">שפת הלומדה: עברית</span>
+                    <h3>ממוצע וחציון</h3>
+                    <p>למידה ותרגול של מדדי מרכז בסטטיסטיקה: ממוצע וחציון.</p>
+                    <a href="https://codepen.io/tarek-khalaily/full/ogYyBbb" target="_blank" class="btn-link">פתח לומדה</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="category-title">5. דמיון משולשים</h2>
+            <div class="grid-container">
+
+                <div class="card" data-title="דמיון משולשים גיאומטריה">
+                    <span class="badge">שפת הלומדה: עברית</span>
+                    <h3>דמיון משולשים - בסיס</h3>
+                    <p>הסברים ותרגול בנושא משולשים דומים בעברית.</p>
+                    <a href="https://codepen.io/tarek-khalaily/full/emBrvYd" target="_blank" class="btn-link">פתח לומדה</a>
+                </div>
+
+                <div class="card" data-title="דמיון משולשים גיאומטריה גרסה נוספת">
+                    <span class="badge">שפת הלומדה: עברית</span>
+                    <h3>דמיון משולשים - מורחב</h3>
+                    <p>תרגול והסברים נוספים על דמיון משולשים.</p>
+                    <a href="https://codepen.io/tarek-khalaily/full/KwNewbg" target="_blank" class="btn-link">פתח לומדה</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="category-title">6. טריגונומטריה</h2>
+            <div class="grid-container">
+
+                <div class="card" data-title="מדריך טריגונומטריה טריגו">
+                    <span class="badge">שפת הלומדה: עברית</span>
+                    <h3>מדריך טריגונומטריה</h3>
+                    <p>מדריך למידה והבנת מושגי היסוד בטריגונומטריה.</p>
+                    <a href="https://codepen.io/tarek-khalaily/full/EaNLWmb" target="_blank" class="btn-link">פתח לומדה</a>
+                </div>
+
+                <div class="card" data-title="דוגמאות בטריגונומטריה טריגו">
+                    <span class="badge">שפת הלומדה: עברית</span>
+                    <h3>דוגמאות בטריגונומטריה</h3>
+                    <p>דוגמאות פתורות ותרגילים יישומיים בטריגונומטריה.</p>
+                    <a href="https://codepen.io/tarek-khalaily/full/ogYdZGP" target="_blank" class="btn-link">פתח לומדה</a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© כל הזכויות שמורות למרכז הלמידה במתמטיקה</p>
+    </footer>
+
+    <script>
+        // מנגנון חיפוש דינמי
+        const searchInput = document.getElementById('searchInput');
+        const sections = document.querySelectorAll('.category-section');
+
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+
+            sections.forEach(section => {
+                let hasVisibleCards = false;
+                const sectionCards = section.querySelectorAll('.card');
+
+                sectionCards.forEach(card => {
+                    const searchData = card.getAttribute('data-title').toLowerCase();
+                    
+                    if (searchData.includes(searchTerm)) {
+                        card.style.display = 'flex';
+                        hasVisibleCards = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (hasVisibleCards) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
